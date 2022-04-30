@@ -27,7 +27,8 @@ SymPy 是用于符号数学的 Python 库，它旨在成为功能齐全的计算
 1.运行(Win+R)键，输入cmd打开命令行窗口；
 
 2.输入命令```pip install sympy```，完成sympy包安装，出现下图所示内容即为安装成功。
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image001.jpg)
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image001.jpg)
 
 sympy包安装完成后，在命令行中输入python以进入，通过以下命令可测试sympy库能否正常使用，出现下图所示结果即为测试成功。
 ```
@@ -37,7 +38,7 @@ sym.sin(sym.pi)
 
 sym.cos(sym.pi)
 ```
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image002.png)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image002.png)
 
 **3 Sympy函数简介**
 
@@ -80,7 +81,7 @@ SciPy 是一个开源的 Python 算法库和数学工具包。Scipy 是基于 Nu
 
 3.若安装过程中出现下图所示Warning提醒，通过对pip进行更新可解决，更新命令为```python -m pip install --upgrade pip```。出现下图底部所示内容即为成功。
 
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image003.png)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image003.png)
 
 numpy包安装完成后，在命令行中输入python以进入，通过以下命令生成单位矩阵可测试numpy库能否正常使用，出现下图所示array即为测试成功。
 ```
@@ -88,7 +89,7 @@ from numpy import *
 
 eye(4)
 ```
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image004.png)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image004.png)
 
 **3 安装Scipy包**
 
@@ -98,7 +99,7 @@ eye(4)
 
 2.输入命令pip install scipy，完成scipy包安装，出现下图所示内容即为安装成功。
 
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image005.png)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image005.jpg)
 
 scipy包安装完成后，在命令行中输入python以进入，通过以下命令导入scipy中的常量模块constants可测试scipy库能否正常使用，出现下图所示结果即为测试成功。
 ```py
@@ -109,7 +110,7 @@ from scipy import constants
 print(constants.acre)
 ```
 
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image006.png)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image006.png)
 
 ### 基于Matplotlib的数据可视化
 
@@ -133,7 +134,7 @@ Matplotlib安装起来十分简单，在已安装Python的情况下，输入命�
 
 Matplotlib和Matlab绘图部分的功能各有所长、互不包含，但大部分绘制需求两者都能胜任。Matplotlib还非常贴心地准备了pyplot子库，使用其中的函数来编程，代码风格和Matlab十分贴近，给从Matlab转Python的使用者提供了很大的便利。
 
-以下是一个使用matplotlib创建连续图、散点图、柱状图、茎叶图和阶梯图的例子，这个例子在后面还会进一步讲解。
+以下是一个使用matplotlib创建连续图、散点图、柱状图、茎叶图和阶梯图的例子，这个例子在后面的Matplotlib软件包使用部分还会进一步讲解。
 ```py
 import matplotlib.pyplot as plt
 
@@ -176,7 +177,8 @@ plt.step(x,y)
 plt.show()
 ```
 绘制出的图形如下图所示。
-![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image007.png)
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/python%E7%AE%80%E4%BB%8B/image007.png)
 
 ## 编程基础
 
