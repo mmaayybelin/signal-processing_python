@@ -22,7 +22,7 @@ root_window.title('主窗口')
 
 root_window.mainloop()
 ```
-![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image001.jpg)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image001.png)
 
 
 ## 三、添加控件并编写相应的响应函数
@@ -112,7 +112,7 @@ button.pack(side="bottom")
 
 root_window.mainloop()
 ```
-![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image002.jpg)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image002.png)
 
 **2 编写响应（回调）函数**
 
@@ -178,7 +178,7 @@ text.pack()
 
 root_window.mainloop()
 ```
-![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image003.jpg)
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image003.png)
 
 四、在主事件循环中等待用户触发事件响应。
 
