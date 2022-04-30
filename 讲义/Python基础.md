@@ -26,15 +26,16 @@ SymPy 是用于符号数学的 Python 库，它旨在成为功能齐全的计算
 
 1.运行(Win+R)键，输入cmd打开命令行窗口；
 
-2.输入命令pip install sympy，完成sympy包安装，出现图3.1.1所示内容即为安装成功。
+2.输入命令```pip install sympy```，完成sympy包安装，出现图3.1.1所示内容即为安装成功。
 
 sympy包安装完成后，在命令行中输入python以进入，通过以下命令可测试sympy库能否正常使用，出现图3.1.2所示结果即为测试成功。
-
+```
 \>\>\>import sympy as sym
 
 \>\>\>sym.sin(sym.pi)
 
 \>\>\>sym.cos(sym.pi)
+```
 
 **3 Sympy函数简介**
 
@@ -74,16 +75,16 @@ SciPy 是一个开源的 Python 算法库和数学工具包。Scipy 是基于 Nu
 
 1.运行(Win+R)键，输入cmd打开命令行窗口；
 
-2.输入命令pip install numpy，完成numpy包安装；
+2.输入命令```pip install numpy```，完成numpy包安装；
 
 3.若安装过程中出现图3.3.1所示Warning提醒，通过对pip进行更新可解决，更新命令为python -m pip install --upgrade pip，出现图3.1.3所示内容即为成功。
 
 numpy包安装完成后，在命令行中输入python以进入，通过以下命令生成单位矩阵可测试numpy库能否正常使用，出现图3.1.4所示array即为测试成功。
-
+```
 \>\>\>from numpy import \*
 
 \>\>\>eye(4)
-
+```
 **3 安装Scipy包**
 
 步骤如下：
@@ -93,13 +94,13 @@ numpy包安装完成后，在命令行中输入python以进入，通过以下命
 2.输入命令pip install scipy，完成scipy包安装，出现图3.1.5所示内容即为安装成功。
 
 scipy包安装完成后，在命令行中输入python以进入，通过以下命令导入scipy中的常量模块constants可测试scipy库能否正常使用，出现图3.1.6所示结果即为测试成功。
-
+```
 \>\>\>from scipy import constants
 
 \>\>\>\# 一英亩等于多少平方米
 
 \>\>\>print(constants.acre)
-
+```
 ### 基于Matplotlib的数据可视化
 
 Matplotlib是一个能够创建和修改静态、动态甚至交互式可视化内容的内容十分全面的Python库，在很多情况下，使用Python做出的可视化内容依托于该库，它有以下6个优点：
@@ -116,16 +117,14 @@ Matplotlib是一个能够创建和修改静态、动态甚至交互式可视化�
 
 （6）拥有丰富且开源的第三方库。
 
-Matplotlib安装起来十分简单，在已安装Python的情况下，输入以下命令行即可安装。
-
-pip install matplotlib
+Matplotlib安装起来十分简单，在已安装Python的情况下，输入命令行```pip install matplotlib```即可安装。
 
 此外，由于Matplotlib是一个较为成熟的库，而且很好地顺应了科研的需求，一些平台在安装的时候就附带了该库，比如通过安装Anaconda可以实现Matplotlib的自动安装。
 
 Matplotlib和Matlab绘图部分的功能各有所长、互不包含，但大部分绘制需求两者都能胜任。Matplotlib还非常贴心地准备了pyplot子库，使用其中的函数来编程，代码风格和Matlab十分贴近，给从Matlab转Python的使用者提供了很大的便利。
 
 以下是一个使用matplotlib创建连续图、散点图、柱状图、茎叶图和阶梯图的例子，这个例子在后面还会进一步讲解。
-
+```py
 import matplotlib.pyplot as plt
 
 x = [1,2,3,4,5,7.2];
@@ -165,7 +164,7 @@ plt.subplot(224)
 plt.step(x,y)
 
 plt.show()
-
+```
 绘制出的图形如下图所示。
 
 ## 编程基础
@@ -309,7 +308,7 @@ List（列表） 是 Python 中使用最频繁的数据类型。列表可以完�
 **7 Python常用函数**
 
 数学常量：pi（圆周率）。e（自然常数），math.inf（正无穷大，负无穷大为 -math.inf）math.nan（非浮点数标记）。示例如下：
-
+```py
 math.fabs(x) \#返回x的绝对值
 
 math.fmod(x,y) \#返回x/y的余数，其值为浮点数
@@ -361,7 +360,7 @@ math.erfc(x) \#余补高斯误差函数
 math.gamma(x) \#伽马函数，也叫欧拉第二积分函数
 
 math.lgamma(x) \#伽马函数的自然对数
-
+```
 Python 提供对于复数运算的支持，复数在 Python 中的表达式为 C==c.real+c.imag\*j，复数 C 由他的实部和虚部组成。对于复数，Python 支持它的加减乘除运算，同时提供了 cmath 模块对其他复杂运算进行支持。
 
 cmath 模块中的 polar() 方法和 rect() 方法可以对复数进行极坐标表示和笛卡尔表示方法的转换。复数的指数函数为 cmath.exp(x), 用来求解 e\^x 表达式。cmath.log(x[,base]) 求以 Base 为底的 x 的对数。cmath.log10(x) 求以 10 为底 x 的对数。cmath.sqrt(x) 求 x 的平方根。
@@ -413,7 +412,7 @@ Python条件语句是通过一条或多条语句的执行结果（True或者Fals
 Python程序语言指定任何非0和非空（null）值为true，0 或者 null为false。
 
 Python 编程中 if 语句用于控制程序的执行，基本形式为：
-
+```
 if 判断条件：
 
 执行语句……
@@ -421,11 +420,11 @@ if 判断条件：
 else：
 
 执行语句……
-
+```
 其中"判断条件"成立时（非零），则执行后面的语句，而执行内容可以多行，以缩进来区分表示同一范围。else 为可选语句，当需要在条件不成立时执行内容则可以执行相关语句。
 
 if 语句的判断条件可以用\>（大于）、\<(小于)、==（等于）、\>=（大于等于）、\<=（小于等于）来表示其关系。当判断条件为多个值时，可以使用以下形式：
-
+```
 if 判断条件1:
 
 执行语句1……
@@ -441,7 +440,7 @@ elif 判断条件3:
 else:
 
 执行语句4……
-
+```
 由于 Python 并不支持 switch 语句，所以多个条件判断，只能用 elif 来实现，如果判断需要多个条件需同时判断时，可以使用 or （或），表示两个条件有一个成立时判断条件成功；使用 and （与）时，表示只有两个条件同时成立的情况下，判断条件才成功。当if有多个条件时可使用括号来区分判断的先后顺序，括号中的判断优先执行，此外 and 和 or 的优先级低于\>（大于）、\<（小于）等判断符号，即大于和小于在没有括号的情况下会比与或要优先判断。
 
 ### 循环语句
@@ -455,11 +454,11 @@ Python有两个原始循环命令：while和for。
 while循环需要准备好相关的变量。
 
 调用格式形如：
-
+```
 while 判断条件：
 
 执行语句……
-
+```
 当判断条件为假（false）时，循环结束。
 
 **2 For**
@@ -469,11 +468,11 @@ for循环用于迭代遍历序列（即列表，元组，字典，集合或字�
 for循环不需要预先设置索引变量。
 
 调用格式形如：
-
+```
 for迭代变量in 序列:
 
 执行语句……
-
+```
 如需循环一组代码指定的次数，可以使用 range()函数，range()函数返回一个数字序列，默认情况下从0开始，递增1直到括号内指定的数字结束（不包括该数字）。
 
 例如，range(10)表示值从0到9。range()函数默认0为起始值，还可通过添加参数来指定起始值：如range(3,10)，表示值为3到9。
@@ -517,21 +516,21 @@ pass是空语句，是为了保持程序结构的完整性的占位语句。
 （4）使用return语句退出函数，并返回一个表达式。不带表达式的return相当于返回 None。
 
 格式形如（方括号表示内容可省略）：
-
+```
 def 函数名( 形参 ):
 
 执行语句……
 
 return [表达式]
-
+```
 **2 函数调用**
 
 使用函数名称后跟括号调用函数。括号内容由创建函数时的定义决定。
 
 格式形如：
-
+```
 函数名(实参)
-
+```
 **3 参数传递**
 
 发送到函数的参数可以是任何数据类型（字符串、数字、列表、字典等），并且在函数内该参数的数据类型不变。变量没有类型。
@@ -547,7 +546,7 @@ Python函数的参数传递分为可更改对象和不可更改对象。
 调用函数时可使用的正式参数类型：必备参数、关键字参数、默认参数、不定长参数。
 
 **必备参数**必须以按照定义时的参数顺序依次传入函数。调用时的数量必须和声明时的一样。如：
-
+```py
 \#函数定义
 
 def fun(a,b)
@@ -605,20 +604,20 @@ print(args)
 \#函数调用
 
 num(11,22,33,44)
-
+```
 输出结果为：
-
+```
 11
 
 22
 
 (33,44)
-
+```
 **5 匿名函数**
 
 匿名函数指一类无须定义标识符的函数或子程序。Python用lambda语法定义匿名函数，只需用表达式而无需申明。lambda函数可以接受任意数量的参数，但只能有一个表达式，格式形如：
 
-lambda [arg1 [,arg2,.....argn]]:表达式
+```lambda [arg1 [,arg2,.....argn]]:表达式```
 
 **6 变量类型及作用域**
 
@@ -632,6 +631,7 @@ lambda [arg1 [,arg2,.....argn]]:表达式
 
 示例如下：
 
+```py
 total = 0 \# 这是一个全局变量
 
 def sum( arg1, arg2 ):
@@ -647,13 +647,13 @@ return total
 sum( 10, 20 )
 
 print("函数外是全局变量 : ", total)
-
+```
 输出结果为：
-
+```
 函数内是局部变量 : 30
 
 函数外是全局变量 : 0
-
+```
 ### 模块和包
 
 **1 模块介绍**
@@ -664,15 +664,15 @@ print("函数外是全局变量 : ", total)
 
 模块可以被别的程序引入，以使用该模块中的函数等功能,这也是使用 Python 标准库的方法。使用import语句为当前程序导入模块。格式形如：
 
-import 模块名1[,模块名2[,... 模块名N]]
+```import 模块名1[,模块名2[,... 模块名N]]```
 
 结合from 语句从模块中导入一个指定的部分到当前命名空间中。语法如下：
 
-from 模块名 import 成员名1[, 成员名2[, ... 成员名N]]
+```from 模块名 import 成员名1[, 成员名2[, ... 成员名N]]```
 
 把一个模块的所有内容全都导入到当前的命名空间，使用如下声明：
 
-from 模块名 import \*
+```from 模块名 import \*```
 
 **3 制作自己的模块文件**
 
@@ -690,12 +690,184 @@ from 模块名 import \*
 
 （1）
 
-import 包名[.模块名 [as 别名]]
+```import 包名[.模块名 [as 别名]]```
 
 （2）
 
-from 包名 import 模块名 [as 别名]
+```from 包名 import 模块名 [as 别名]```
 
 （3）
 
-from 包名.模块名 import 成员名 [as 别名]
+```from 包名.模块名 import 成员名 [as 别名]```
+
+## Matplotlib软件包使用
+
+Matplotlib的全称是mathematic plot library，这个名称非常简练而准确地概括了它的功能：创建各种各样的可视化内容，这些内容可以是静态的、动态的，甚至是可交互的。其官方文档请见网址https://matplotlib.org/。
+
+pyplot是Matplotlib中的一个重要子库，它包含了各种函数使得Matplotlib的代码风格贴近Matlab，接下来以其为中心展开。
+
+**基础图表绘制**
+
+pyplot库支持绘制5种图表：连续平面图、散点图、柱状图、茎叶图、阶梯图。
+
+连续平面图由matplotlib.pyplot.plot函数实现，典型范例如下：
+```py
+import matplotlib.pyplot as plt
+
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+y = 4 + 2 \* np.sin(2 \* x)
+
+plt.plot(x, y)
+
+plt.show()
+```
+对比功能相同的Matlab的代码：
+```matlab
+x = linspace(0, 10, 100);
+
+y = 4 + 2 \* sin(2 \* x);
+
+plot(x, y);
+```
+可以发现代码风格几乎相同，不同之处是前者还需要导入库，绘图的函数作为库中的方法呈现。此外，Matplotlib画完图之后可能需要使用show()方法将图窗显示出来。
+
+其他五种图表与连续平面图绘制方法大同小异，欲绘制散点图，将本例中的plot函数改成scatter函数即可；同理，stem函数绘制茎叶图，bar函数绘制柱状图，step函数绘制阶梯图。
+
+再看本例，绘制图形时，传入的x和y必须是相同长度的数组，否则会出错。本例中只有一个x数组和一个y数组，若需要根据多个x数组和相同数量的y集合一次性画出多个图形，例如x1, x2和y1, y2，则需要将本例中的代码修改为以下代码即可。
+
+```plt.plot(x1, y1, x2, y2)```
+
+如果需要在同一个图窗里放置多个坐标系，在Matlab中我们使用subplot函数，而pyplot子库也提供了相同名称的函数，用法也完全相同。subplot(m,n,p)表示将整个图窗分块为m行n列，每一块放置一个坐标系，各个分块的编号和我们平时写字的顺序是相同的：规定左上角为第1块，往右编号递增，下一行最左边的分块紧接着本行最右边的分块，而接下来所有的绘图都在第p个分块的坐标系中进行。如果m,n,p都只有一位数，此时可以把逗号去掉，例如subplot(2,2,1)可以写成subplot(221).
+
+有一点需要注意，在Matlab中，如果我们连续两次调用绘图的函数，在调用第二次的时候默认先擦除第一次所绘制的图像，除非在第二次绘图之前使用hold on语句让其保持。但matplotlib刚好相反，连续绘制不会擦除之前的图像，除非使用pyplot中的cla函数清除当前坐标系中的图像，或使用clf函数清除当前图窗中所有坐标系的图像。
+
+接下来的例子较为综合地应用了以上的知识点。
+```py
+import matplotlib.pyplot as plt
+
+x = [1,2,3,4,5,7.2];
+
+y = [1,3,1,2,4,1];
+
+\# 连续图和散点图画在同一个图里
+
+plt.subplot(321)
+
+plt.plot(x,y)
+
+plt.scatter(x,y)
+
+\# 柱状图
+
+plt.subplot(222)
+
+plt.bar(x,y)
+
+\# 茎叶图
+
+plt.subplot(223)
+
+plt.stem(x,y)
+
+\# 阶梯图
+
+plt.subplot(224)
+
+plt.step(x,y)
+
+plt.show()
+```
+最终弹出如下图窗（在Jupyter Notebook中弹不出图窗），Matplotlib允许使用多种格式保存图像，这里采用.svg矢量图。
+
+图3.6.1 Matplotlib绘图示例
+
+此外该图窗还允许与这些坐标系互动，可以缩放、平移等。
+
+**线条和标识**
+
+线条属性既可以作为绘图函数的参数输入，又可以在事后再修改。plot函数的线条有以下几个常用的属性。
+
+| 属性（可点击）                                                                                       | 含义         | 对应函数      | 取值                          |
+|------------------------------------------------------------------------------------------------------|--------------|---------------|-------------------------------|
+| linewidth                                                                                            | 线宽         | set_linewidth | 浮点数，默认为1.0             |
+| [linestyle](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html#linestyles) | 线的风格     | set_linestyle | 字符串，例如'-'或'solid'      |
+| [color](https://matplotlib.org/stable/gallery/color/named_colors.html#list-of-named-colors)          | 颜色         | set_color     | 字符串，例如'red'或'\#ff0000' |
+| [marker](https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers)               | 数据点的标记 | set_marker    | 字符串，例如'.', 'o', '\^'    |
+| label                                                                                                | 数据标签     | set_label     | 字符串，用于图例              |
+
+表3.6.1 线条属性
+
+使用方法一：在绘制的时候当作参数输入。
+
+```py
+plt.plot(x, y, linewidth=2, linestyle='dashdot', color='g', marker='\^')
+```
+
+使用方法二：plot函数返回线条对象列表（指定了多少组x-y数组就有多少个线条对象），调用线条对象的“对应函数”（如上表所示）。
+```py
+lines = plt.plot(x, y)
+
+lines[0].set_linewidth(2)
+
+lines[0].set_linestyle('dashdot')
+
+lines[0].set_color('green')
+
+lines[0].set_marker('\^')
+```
+以上两段代码效果相同。
+
+坐标区域的属性设置和Matlab相似，在Matlab中，我们使用xlabel函数来设置横坐标的标签，ylabel函数设置纵坐标的标签，title函数设置坐标区域的标题，xlim设置x轴的范围，ylim设置y轴的范围，legend设置图例。pyplot子库也提供了名称和用法完全相同的函数。
+
+**文字说明**
+
+在Matlab中，我们使用text函数向坐标区中的某个点（坐标）添加文字，pyplot子库也提供了同名同功能的函数。最简单的用法是
+```py
+plt.text(x, y, str)
+```
+这一行代码将文字str添加在当前坐标区的(x,y)处，默认情况下，最后一行文字的水平中心线为y，且文字添加在该点的右侧，这些都可以修改，作为参数调用text函数。text函数如下表。
+
+| 属性           | 含义     | 取值                                        |
+|----------------|----------|---------------------------------------------|
+| fontfamily     | 字体名称 | 字符串，比如'Simsun'（宋体）                |
+| fontsize       | 字体大小 | 浮点数或'small', 'medium', 'large'等        |
+| fontweight     | 字体粗细 | 0-1000的数值或'normal', 'regular', 'bold'等 |
+| color          | 字体颜色 | 同线条的color属性                           |
+| multialignment | 对齐方式 | 字符串，可取'left', 'right', 'center'       |
+| position       | 文字位置 | 表示坐标的数组，主要用于事后修改            |
+
+表3.6.2 text函数
+
+同线条属性，文字属性也可以事后再设置，text函数返回文字对象，调用文字对象的set_xxx函数便可以设置了，例如以下代码：
+
+```py
+plt.text(2, 3, 'string', fontfamily='Arial', fontsize='14', fontweight = 'regular')
+```
+
+等效为以下代码：
+```py
+txt = plt.text(2, 3, 'string')
+
+txt.set_fontfamily('Arial')
+
+txt.set_fontsize(14)
+
+txt.set_fontweight('regular')
+```
+一种更灵活的注释方式是pyplot的annotate函数，可以看作带箭头的text函数，效果是箭头指向需要注释的点，字体的属性可以设置，箭头的属性也可以设置。
+
+最简单的例子是：
+
+```py
+plt.annotate('string', xy=(2,3), xytext=(3,4), arrowprops=dict(facecolor='black'))
+```
+
+结合第一节的例子，效果如下图：
+
+图3.6.2 annotate函数绘图示例
+
+即创建了一个注释，注释的点是第一个坐标区的(2,3)，文字放在(3,4)处并且左对齐。
+
