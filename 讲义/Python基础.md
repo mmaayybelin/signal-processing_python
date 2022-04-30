@@ -100,7 +100,7 @@ scipy包安装完成后，在命令行中输入python以进入，通过以下命
 
 \>\>\>print(constants.acre)
 
-## 基于Matplotlib的数据可视化
+### 基于Matplotlib的数据可视化
 
 Matplotlib是一个能够创建和修改静态、动态甚至交互式可视化内容的内容十分全面的Python库，在很多情况下，使用Python做出的可视化内容依托于该库，它有以下6个优点：
 
