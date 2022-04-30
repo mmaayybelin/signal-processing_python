@@ -30,11 +30,11 @@ SymPy 是用于符号数学的 Python 库，它旨在成为功能齐全的计算
 
 sympy包安装完成后，在命令行中输入python以进入，通过以下命令可测试sympy库能否正常使用，出现图3.1.2所示结果即为测试成功。
 ```
-\>\>\>import sympy as sym
+import sympy as sym
 
-\>\>\>sym.sin(sym.pi)
+sym.sin(sym.pi)
 
-\>\>\>sym.cos(sym.pi)
+sym.cos(sym.pi)
 ```
 
 **3 Sympy函数简介**
@@ -81,25 +81,25 @@ SciPy 是一个开源的 Python 算法库和数学工具包。Scipy 是基于 Nu
 
 numpy包安装完成后，在命令行中输入python以进入，通过以下命令生成单位矩阵可测试numpy库能否正常使用，出现图3.1.4所示array即为测试成功。
 ```
-\>\>\>from numpy import \*
+from numpy import *
 
-\>\>\>eye(4)
+eye(4)
 ```
 **3 安装Scipy包**
 
 步骤如下：
 
-1\. 运行(Win+R)键，输入cmd打开命令行窗口；
+1. 运行(Win+R)键，输入cmd打开命令行窗口；
 
 2.输入命令pip install scipy，完成scipy包安装，出现图3.1.5所示内容即为安装成功。
 
 scipy包安装完成后，在命令行中输入python以进入，通过以下命令导入scipy中的常量模块constants可测试scipy库能否正常使用，出现图3.1.6所示结果即为测试成功。
-```
-\>\>\>from scipy import constants
+```py
+from scipy import constants
 
-\>\>\>\# 一英亩等于多少平方米
+# 一英亩等于多少平方米
 
-\>\>\>print(constants.acre)
+print(constants.acre)
 ```
 ### 基于Matplotlib的数据可视化
 
@@ -131,7 +131,7 @@ x = [1,2,3,4,5,7.2];
 
 y = [1,3,1,2,4,1];
 
-\# 连续图和散点图画在同一个图里
+# 连续图和散点图画在同一个图里
 
 plt.subplot(321)
 
@@ -145,19 +145,19 @@ plt.ylabel('y')
 
 plt.title('continuum and scatter')
 
-\# 柱状图
+# 柱状图
 
 plt.subplot(222)
 
 plt.bar(x,y)
 
-\# 茎叶图
+# 茎叶图
 
 plt.subplot(223)
 
 plt.stem(x,y)
 
-\# 阶梯图
+# 阶梯图
 
 plt.subplot(224)
 
@@ -193,7 +193,7 @@ Python 语言与 Perl，C 和 Java 等语言有许多相似之处。但是，也
 
 Python 中的标识符是区分大小写的。
 
-以下划线开头的标识符是有特殊意义的。以单下划线开头 \_foo 的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用 from xxx import \* 而导入。
+以下划线开头的标识符是有特殊意义的。以单下划线开头 _foo 的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用 ```from xxx import * ```而导入。
 
 以双下划线开头的 \__foo 代表类的私有成员，以双下划线开头和结尾的 \__foo_\_ 代表 Python 里特殊方法专用的标识，如 \__init__() 代表类的构造函数。
 
@@ -232,7 +232,7 @@ Python 可以使用引号( ' )、双引号( " )、三引号( ''' 或 """ ) 来�
 
 **8 Python注释**
 
-Python中单行注释采用 \# 开头。注释可以在语句或表达式行末。Python 中多行注释使用三个单引号(''')或三个双引号(""")。
+Python中单行注释采用 # 开头。注释可以在语句或表达式行末。Python 中多行注释使用三个单引号(''')或三个双引号(""")。
 
 **9 Python空行**
 
@@ -309,67 +309,67 @@ List（列表） 是 Python 中使用最频繁的数据类型。列表可以完�
 
 数学常量：pi（圆周率）。e（自然常数），math.inf（正无穷大，负无穷大为 -math.inf）math.nan（非浮点数标记）。示例如下：
 ```py
-math.fabs(x) \#返回x的绝对值
+math.fabs(x) #返回x的绝对值
 
-math.fmod(x,y) \#返回x/y的余数，其值为浮点数
+math.fmod(x,y) #返回x/y的余数，其值为浮点数
 
-math.fsum([x,y,…]) \#对括号内每个元素求和，其值为浮点数
+math.fsum([x,y,…]) #对括号内每个元素求和，其值为浮点数
 
-math.ceil(x) \#向上取整，返回不小于x的最小整数
+math.ceil(x) #向上取整，返回不小于x的最小整数
 
-math.floor(x) \#向下取整，返回不大于x的最大整数
+math.floor(x) #向下取整，返回不大于x的最大整数
 
-math.factorial(x) 返回x的阶乘，如果x是小数或负数，返回ValueError
+math.factorial(x) #返回x的阶乘，如果x是小数或负数，返回ValueError
 
-math.gcd(a,b) \#返回a与b的最大公约数
+math.gcd(a,b) #返回a与b的最大公约数
 
-math.frexp(x) \#x = m \* 2\^e 返回（m,e），当x=0，返回（0.0,0）
+math.frexp(x) #x = m * 2^e 返回（m,e），当x=0，返回（0.0,0）
 
-math.ldexp(x,i) \#x = m \* 2\^e 返回 x \* 2\^i的运算值，math.frexp(x)函数的反运算
+math.ldexp(x,i) #x = m * 2^e 返回 x * 2^i的运算值，math.frexp(x)函数的反运算
 
-math.modf(x) \#返回x的小数和整数部分
+math.modf(x) #返回x的小数和整数部分
 
-math.trunc() \#返回x的整数部分
+math.trunc() #返回x的整数部分
 
-math.pow(x,y) \#返回x的y次幂
+math.pow(x,y) #返回x的y次幂
 
-math.exp(x) \#返回e的x次幂
+math.exp(x) #返回e的x次幂
 
-math.sqrt(x) \#返回x的平方根
+math.sqrt(x) #返回x的平方根
 
-math.log(x[,base]) \#返回x的对数值，只输入x时，返回lnx
+math.log(x[,base]) #返回x的对数值，只输入x时，返回lnx
 
-math.log10(x) \#返回x的10对数值
+math.log10(x) #返回x的10对数值
 
-math.degree(x) \#角度x的弧度值转角度值
+math.degree(x) #角度x的弧度值转角度值
 
-math.radians(x) \#角度值转弧度值
+math.radians(x) #角度值转弧度值
 
-math.hypot(x,y) \#返回（x,y）坐标到原点（0,0）的距离
+math.hypot(x,y) #返回（x,y）坐标到原点（0,0）的距离
 
-math.sin(x) 返回x的正弦函数值，x是弧度值
+math.sin(x) #返回x的正弦函数值，x是弧度值
 
-math.atan2(y,x) \#返回y/x的反正切函数值
+math.atan2(y,x) #返回y/x的反正切函数值
 
-math.sinh(x) \#返回x的双曲正弦函数值
+math.sinh(x) #返回x的双曲正弦函数值
 
-math.erf(x) \#高斯误差函数
+math.erf(x) #高斯误差函数
 
-math.erfc(x) \#余补高斯误差函数
+math.erfc(x) #余补高斯误差函数
 
-math.gamma(x) \#伽马函数，也叫欧拉第二积分函数
+math.gamma(x) #伽马函数，也叫欧拉第二积分函数
 
-math.lgamma(x) \#伽马函数的自然对数
+math.lgamma(x) #伽马函数的自然对数
 ```
-Python 提供对于复数运算的支持，复数在 Python 中的表达式为 C==c.real+c.imag\*j，复数 C 由他的实部和虚部组成。对于复数，Python 支持它的加减乘除运算，同时提供了 cmath 模块对其他复杂运算进行支持。
+Python 提供对于复数运算的支持，复数在 Python 中的表达式为 C==c.real+c.imag*j，复数 C 由他的实部和虚部组成。对于复数，Python 支持它的加减乘除运算，同时提供了 cmath 模块对其他复杂运算进行支持。
 
-cmath 模块中的 polar() 方法和 rect() 方法可以对复数进行极坐标表示和笛卡尔表示方法的转换。复数的指数函数为 cmath.exp(x), 用来求解 e\^x 表达式。cmath.log(x[,base]) 求以 Base 为底的 x 的对数。cmath.log10(x) 求以 10 为底 x 的对数。cmath.sqrt(x) 求 x 的平方根。
+cmath 模块中的 polar() 方法和 rect() 方法可以对复数进行极坐标表示和笛卡尔表示方法的转换。复数的指数函数为 cmath.exp(x), 用来求解 e^x 表达式。cmath.log(x[,base]) 求以 Base 为底的 x 的对数。cmath.log10(x) 求以 10 为底 x 的对数。cmath.sqrt(x) 求 x 的平方根。
 
 ### 运算符
 
 **1 Python算术运算符**
 
-\+，-，\*，/， %（取模返回除法的余数），\*\*（幂），//（取整除）。
++，-，*，/， %（取模返回除法的余数），\*\*（幂），//（取整除）。
 
 **2 Python比较运算符**
 
@@ -547,7 +547,7 @@ Python函数的参数传递分为可更改对象和不可更改对象。
 
 **必备参数**必须以按照定义时的参数顺序依次传入函数。调用时的数量必须和声明时的一样。如：
 ```py
-\#函数定义
+#函数定义
 
 def fun(a,b)
 
@@ -555,13 +555,13 @@ print(“a=”,a)
 
 print(“b=”,b)
 
-\#函数调用，按顺序传入，1传给a，2传给b
+#函数调用，按顺序传入，1传给a，2传给b
 
 fun(1,2)
-
+```
 **关键字参数**允许函数调用时参数的顺序与声明时不一致，Python解释器使用参数名匹配参数值。如：
-
-\#函数定义
+```py
+#函数定义
 
 def fun(a,b)
 
@@ -569,13 +569,13 @@ print(“a=”,a)
 
 print(“b=”,b)
 
-\#函数调用
+#函数调用
 
 fun(b=1,a=2)
-
+```
 定义函数时，可以给某个参数赋值一个默认值，具有默认值的参数即**默认参数**。调用函数时，默认参数的值如果没有传入，则被认为是默认值。如：
-
-\#函数定义，b是默认参数
+```py
+#函数定义，b是默认参数
 
 def fun(a,b=2)
 
@@ -583,17 +583,17 @@ print(“a=”,a)
 
 print(“b=”,b)
 
-\#函数调用
+#函数调用
 
-fun(b=3,a=1) \#输出a=1 b=3
+fun(b=3,a=1) #输出a=1 b=3
 
-fun(a=1) \#输出a=1 b=2
+fun(a=1) #输出a=1 b=2
+```
+当函数需要处理的参数个数不确定时，可使用**不定长参数**。不定长参数只能放在形参的最后位置。接收元组时参数名（一般为“args”）前加一个“*”，接收字典时参数名（一般为“kwargs”）前加两个“*”。如：
+```py
+#函数定义，不定长参数为元组
 
-当函数需要处理的参数个数不确定时，可使用**不定长参数**。不定长参数只能放在形参的最后位置。接收元组时参数名（一般为“args”）前加一个“\*”，接收字典时参数名（一般为“kwargs”）前加两个“\*”。如：
-
-\#函数定义，不定长参数为元组
-
-def num(a,b,\*args):
+def num(a,b,*args):
 
 print(a)
 
@@ -601,7 +601,7 @@ print(b)
 
 print(args)
 
-\#函数调用
+#函数调用
 
 num(11,22,33,44)
 ```
@@ -617,7 +617,9 @@ num(11,22,33,44)
 
 匿名函数指一类无须定义标识符的函数或子程序。Python用lambda语法定义匿名函数，只需用表达式而无需申明。lambda函数可以接受任意数量的参数，但只能有一个表达式，格式形如：
 
-```lambda [arg1 [,arg2,.....argn]]:表达式```
+```
+lambda [arg1 [,arg2,.....argn]]:表达式
+```
 
 **6 变量类型及作用域**
 
@@ -632,17 +634,17 @@ num(11,22,33,44)
 示例如下：
 
 ```py
-total = 0 \# 这是一个全局变量
+total = 0 # 这是一个全局变量
 
 def sum( arg1, arg2 ):
 
-total = arg1 + arg2 \# total在这里是局部变量
+total = arg1 + arg2 # total在这里是局部变量
 
 print("函数内是局部变量 : ", total)
 
 return total
 
-\#调用sum函数
+#调用sum函数
 
 sum( 10, 20 )
 
@@ -672,7 +674,7 @@ print("函数外是全局变量 : ", total)
 
 把一个模块的所有内容全都导入到当前的命名空间，使用如下声明：
 
-```from 模块名 import \*```
+```from 模块名 import *```
 
 **3 制作自己的模块文件**
 
@@ -682,7 +684,7 @@ print("函数外是全局变量 : ", total)
 
 包是一个分层次的文件目录结构，它定义了一个由模块和子包以及子包下的子包等组成的Python的应用环境。
 
-简单来说，包就是一个目录，里面存放了.py文件，外加一个 \__init__.py文件。__init__.py用于标识当前文件夹是一个包，该文件的内容可以为空。
+简单来说，包就是一个目录，里面存放了.py文件，外加一个 \__init__.py文件。\__init__.py用于标识当前文件夹是一个包，该文件的内容可以为空。
 
 **5 包的引入**
 
@@ -718,7 +720,7 @@ import numpy as np
 
 x = np.linspace(0, 10, 100)
 
-y = 4 + 2 \* np.sin(2 \* x)
+y = 4 + 2 * np.sin(2 * x)
 
 plt.plot(x, y)
 
@@ -728,7 +730,7 @@ plt.show()
 ```matlab
 x = linspace(0, 10, 100);
 
-y = 4 + 2 \* sin(2 \* x);
+y = 4 + 2 * sin(2 * x);
 
 plot(x, y);
 ```
@@ -752,7 +754,7 @@ x = [1,2,3,4,5,7.2];
 
 y = [1,3,1,2,4,1];
 
-\# 连续图和散点图画在同一个图里
+# 连续图和散点图画在同一个图里
 
 plt.subplot(321)
 
@@ -760,19 +762,19 @@ plt.plot(x,y)
 
 plt.scatter(x,y)
 
-\# 柱状图
+# 柱状图
 
 plt.subplot(222)
 
 plt.bar(x,y)
 
-\# 茎叶图
+# 茎叶图
 
 plt.subplot(223)
 
 plt.stem(x,y)
 
-\# 阶梯图
+# 阶梯图
 
 plt.subplot(224)
 
@@ -803,7 +805,7 @@ plt.show()
 使用方法一：在绘制的时候当作参数输入。
 
 ```py
-plt.plot(x, y, linewidth=2, linestyle='dashdot', color='g', marker='\^')
+plt.plot(x, y, linewidth=2, linestyle='dashdot', color='g', marker='^')
 ```
 
 使用方法二：plot函数返回线条对象列表（指定了多少组x-y数组就有多少个线条对象），调用线条对象的“对应函数”（如上表所示）。
@@ -816,7 +818,7 @@ lines[0].set_linestyle('dashdot')
 
 lines[0].set_color('green')
 
-lines[0].set_marker('\^')
+lines[0].set_marker('^')
 ```
 以上两段代码效果相同。
 
