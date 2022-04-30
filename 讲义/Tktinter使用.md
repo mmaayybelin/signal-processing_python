@@ -180,6 +180,6 @@ root_window.mainloop()
 ```
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/tktinter/image003.png)
 
-四、在主事件循环中等待用户触发事件响应。
+## 四、在主事件循环中等待用户触发事件响应。
 
 在程序最后不要忘记调用主窗口mainloop方法即可。
