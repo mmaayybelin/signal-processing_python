@@ -23,6 +23,7 @@ wxPython是Python语言的一套优秀的GUI图形库。允许Python程序员很
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image002.png)
 
 Mac系统+python版本3.9可使用：
+
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image003.png)
 
 （2）在命令行窗口输入形如以下格式的代码。
@@ -34,6 +35,7 @@ pip install + 网址 + 名称
 pip install <https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.1.2a1.dev5259+d3bdb143-cp310-cp310-win_amd64.whl>
 ```
 出现如下图所示界面即为安装成功。
+
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image004.png)
 
 **方法二：**
@@ -64,6 +66,7 @@ pip install -U wxPython
 ```
 pip list
 ```
+
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image006.png)
 
 ## 2 使用方法示例
@@ -120,6 +123,7 @@ dlg.ShowModal()
 
 dlg.Destroy()
 ```
+
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image009.png)
 
 （4）建立面板、创建菜单栏。
@@ -131,7 +135,7 @@ def __init__(self, *args, \*\*kw):
 super(demo, self).__init__(*args, \*\*kw)
 ```
 再在框架中创建一个面板，放置一段静态文字：
-```
+```py
 pnl = wx.Panel(self)
 
 st = wx.StaticText(pnl, label="这是面板")
@@ -145,7 +149,7 @@ font = font.Bold()
 st.SetFont(font)
 ```
 创建菜单栏,创建 "关于" 项目的 "帮助" 菜单：
-```
+```py
 self.make_menu_bar()
 
 help_menu = wx.Menu()
@@ -199,9 +203,9 @@ wx.MessageBox("这是一个小程序", "小程序的帮助", wx.OK | wx.ICON_INF
 
 
 按钮的构造函数如下：
-
+```py
 Button(parent, id, label, pos, size, style, validator, name)
-
+```
 除了上一节描述的四个参数以外，其他各个参数含义如下
 
 -   label: 字符串，按钮上的文字；
@@ -345,17 +349,17 @@ ComboBox(parent, id, value, pos, size, choices, style, validator, name)
 
     -   wx.TE_PROCESS_ENTER: 输入回车键时调用回调函数。
 
-5.列表(list control)
+**5.列表(list control)**
 
 列表是一个非常复杂的控件，列表框在不同的平台上样式如下：
 
-|        ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image024.png)     |      ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image025.png)    |    ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image026.png)     |
+|        ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image024.jpg)     |      ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image025.jpg)    |    ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image026.jpg)     |
 |-------------|----------|---------|
 | Windows平台 | unix平台 | Mac平台 |
 
 
 列表的构造函数如下：
-```
+```py
 ListCtrl(parent, id, pos, size, style, validator, name)
 ```
 列表控件可存储的信息量很大，结构也较为复杂，以至于在构造函数中不能指定其内容，而style参数是以下几个之一：
@@ -486,6 +490,7 @@ RadioBox(parent, id, label, pos, size, choices, validator, name)
 **7.状态栏(status bar)**
 
 状态栏是窗口底部的长条状显示信息的地方，在各种应用程序中非常常见。
+
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image030.png)
 
 wxPython中状态栏的构造函数如下
@@ -529,17 +534,17 @@ StatusBar(parent, id, style, name)
 ![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/wxpython/image031.png)
 
 欲创建一个菜单，使用wx.Menu()函数，不需要参数即可返回一个菜单对象，在欲往菜单里添加项目，则需要使用wx.Append方法：
-```
+```py
 Append (id, item, helpString)
 ```
 其中item为字符串，为菜单项的文字，helpString为帮助字符串，当将鼠标放到该项上时，会显示在状态栏上。在item字符串中加入’\\t’字符，后面的字符串则表示快捷键，例如上图中Hello那一项对应的item字符串为
-
+```py
 Hello...\\tCtrl-H
-
+```
 若想添加如图中那条灰色的线，调用AppendSeparator()方法即可。
 
 窗口上部的那一条称为菜单栏，可用wx.MenuBar()函数创建，返回wx.MenuBar对象，当创建好菜单和菜单栏之后，可调用菜单栏的Append函数菜单添加到菜单栏中：
-
+```py
 Append(menu, text)
-
+```
 menu是创建好的菜单，text则是该菜单的名字，如上图的’File’和‘Help’。创建好菜单之后，调用窗口类的SetMenuBar方法将菜单栏设为本窗口的菜单栏。
