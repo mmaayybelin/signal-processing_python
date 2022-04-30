@@ -26,9 +26,10 @@ SymPy 是用于符号数学的 Python 库，它旨在成为功能齐全的计算
 
 1.运行(Win+R)键，输入cmd打开命令行窗口；
 
-2.输入命令```pip install sympy```，完成sympy包安装，出现图3.1.1所示内容即为安装成功。
+2.输入命令```pip install sympy```，完成sympy包安装，出现下图所示内容即为安装成功。
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image001.jpg)
 
-sympy包安装完成后，在命令行中输入python以进入，通过以下命令可测试sympy库能否正常使用，出现图3.1.2所示结果即为测试成功。
+sympy包安装完成后，在命令行中输入python以进入，通过以下命令可测试sympy库能否正常使用，出现下图所示结果即为测试成功。
 ```
 import sympy as sym
 
@@ -36,6 +37,7 @@ sym.sin(sym.pi)
 
 sym.cos(sym.pi)
 ```
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image002.png)
 
 **3 Sympy函数简介**
 
@@ -54,7 +56,6 @@ Sympy可以实现的功能如下表
 | limit( )            | 求极限                         |
 | sequence( )         | 序列                           |
 | Matrix( )           | 矩阵                           |
-
 
 
 **Sympy具体使用参考：**<https://blog.csdn.net/weixin_30670151/article/details/99021036>
@@ -77,23 +78,29 @@ SciPy 是一个开源的 Python 算法库和数学工具包。Scipy 是基于 Nu
 
 2.输入命令```pip install numpy```，完成numpy包安装；
 
-3.若安装过程中出现图3.3.1所示Warning提醒，通过对pip进行更新可解决，更新命令为python -m pip install --upgrade pip，出现图3.1.3所示内容即为成功。
+3.若安装过程中出现下图所示Warning提醒，通过对pip进行更新可解决，更新命令为```python -m pip install --upgrade pip```。出现下图底部所示内容即为成功。
 
-numpy包安装完成后，在命令行中输入python以进入，通过以下命令生成单位矩阵可测试numpy库能否正常使用，出现图3.1.4所示array即为测试成功。
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image003.png)
+
+numpy包安装完成后，在命令行中输入python以进入，通过以下命令生成单位矩阵可测试numpy库能否正常使用，出现下图所示array即为测试成功。
 ```
 from numpy import *
 
 eye(4)
 ```
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image004.png)
+
 **3 安装Scipy包**
 
 步骤如下：
 
 1. 运行(Win+R)键，输入cmd打开命令行窗口；
 
-2.输入命令pip install scipy，完成scipy包安装，出现图3.1.5所示内容即为安装成功。
+2.输入命令pip install scipy，完成scipy包安装，出现下图所示内容即为安装成功。
 
-scipy包安装完成后，在命令行中输入python以进入，通过以下命令导入scipy中的常量模块constants可测试scipy库能否正常使用，出现图3.1.6所示结果即为测试成功。
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image005.png)
+
+scipy包安装完成后，在命令行中输入python以进入，通过以下命令导入scipy中的常量模块constants可测试scipy库能否正常使用，出现下图所示结果即为测试成功。
 ```py
 from scipy import constants
 
@@ -101,6 +108,9 @@ from scipy import constants
 
 print(constants.acre)
 ```
+
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image006.png)
+
 ### 基于Matplotlib的数据可视化
 
 Matplotlib是一个能够创建和修改静态、动态甚至交互式可视化内容的内容十分全面的Python库，在很多情况下，使用Python做出的可视化内容依托于该库，它有以下6个优点：
@@ -166,6 +176,7 @@ plt.step(x,y)
 plt.show()
 ```
 绘制出的图形如下图所示。
+![image](https://github.com/mmaayybelin/signal-processing_python/tree/main/images/python%E7%AE%80%E4%BB%8B/image007.png)
 
 ## 编程基础
 
@@ -303,7 +314,6 @@ List（列表） 是 Python 中使用最频繁的数据类型。列表可以完�
 | [hex(x)](https://www.runoob.com/python/python-func-hex.html)                    | 将一个整数转换为一个十六进制字符串                  |
 | [oct(x)](https://www.runoob.com/python/python-func-oct.html)                    | 将一个整数转换为一个八进制字符串                    |
 
-表3.2.2 Python数据类型转换
 
 **7 Python常用函数**
 
@@ -361,7 +371,7 @@ math.gamma(x) #伽马函数，也叫欧拉第二积分函数
 
 math.lgamma(x) #伽马函数的自然对数
 ```
-Python 提供对于复数运算的支持，复数在 Python 中的表达式为 C==c.real+c.imag*j，复数 C 由他的实部和虚部组成。对于复数，Python 支持它的加减乘除运算，同时提供了 cmath 模块对其他复杂运算进行支持。
+Python 提供对于复数运算的支持，复数在 Python 中的表达式为 C==c.real+c.imag\*j，复数 C 由他的实部和虚部组成。对于复数，Python 支持它的加减乘除运算，同时提供了 cmath 模块对其他复杂运算进行支持。
 
 cmath 模块中的 polar() 方法和 rect() 方法可以对复数进行极坐标表示和笛卡尔表示方法的转换。复数的指数函数为 cmath.exp(x), 用来求解 e^x 表达式。cmath.log(x[,base]) 求以 Base 为底的 x 的对数。cmath.log10(x) 求以 10 为底 x 的对数。cmath.sqrt(x) 求 x 的平方根。
 
@@ -784,7 +794,7 @@ plt.show()
 ```
 最终弹出如下图窗（在Jupyter Notebook中弹不出图窗），Matplotlib允许使用多种格式保存图像，这里采用.svg矢量图。
 
-图3.6.1 Matplotlib绘图示例
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/matplotlib%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%BD%BF%E7%94%A8/image001.png)
 
 此外该图窗还允许与这些坐标系互动，可以缩放、平移等。
 
@@ -800,7 +810,7 @@ plt.show()
 | [marker](https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers)               | 数据点的标记 | set_marker    | 字符串，例如'.', 'o', '\^'    |
 | label                                                                                                | 数据标签     | set_label     | 字符串，用于图例              |
 
-表3.6.1 线条属性
+
 
 使用方法一：在绘制的时候当作参数输入。
 
@@ -841,7 +851,6 @@ plt.text(x, y, str)
 | multialignment | 对齐方式 | 字符串，可取'left', 'right', 'center'       |
 | position       | 文字位置 | 表示坐标的数组，主要用于事后修改            |
 
-表3.6.2 text函数
 
 同线条属性，文字属性也可以事后再设置，text函数返回文字对象，调用文字对象的set_xxx函数便可以设置了，例如以下代码：
 
@@ -869,7 +878,7 @@ plt.annotate('string', xy=(2,3), xytext=(3,4), arrowprops=dict(facecolor='black'
 
 结合第一节的例子，效果如下图：
 
-图3.6.2 annotate函数绘图示例
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/matplotlib%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%BD%BF%E7%94%A8/image002.png)
 
 即创建了一个注释，注释的点是第一个坐标区的(2,3)，文字放在(3,4)处并且左对齐。
 
