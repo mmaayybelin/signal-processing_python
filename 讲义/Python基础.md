@@ -714,6 +714,1068 @@ print("函数外是全局变量 : ", total)
 
 ```from 包名.模块名 import 成员名 [as 别名]```
 
+## NumPy软件包
+
+### 数组创建
+
+**1数组**
+
+**链接：** https://numpy.org/doc/stable/reference/arrays.ndarray.html
+
+Numpy中的数组是一个值网格，所有类型都相同，并由非负整数元组索引。 维数是数组的排名; 数组的形状是一个整数元组，给出了每个维度的数组大小。
+
+**说明：** numpy中的基本变量类型
+
+**函数：** array()
+
+**案例：** 创建一个大小为2×3的2维数组，由4字节的整型元素组成。
+```py
+>>> x = np.array([[1, 2, 3], [4, 5, 6]], np.int32)
+
+>>> type(x) #返回对象类型
+
+<class 'numpy.ndarray'>
+
+>>> x.shape #返回数组形状
+
+(2, 3)
+
+>>> x.dtype #返回数组元素类型
+
+dtype('int32')
+```
+**2创建数组**
+
+**链接：** https://numpy.org/doc/stable/reference/arrays.ndarray.html
+
+指定数组特征，创建一个任意大小维数。
+
+**说明：** 返回一个数组对象。
+
+**案例：** 常用的数组创建函数
+```py
+>>> import numpy as np
+
+>>> a = np.zeros((2,2)) # 创建全0数组
+
+>>> print("a = ")
+
+>>> print(a)
+
+>>> b = np.ones((1,2)) # 创建全1数组
+
+>>> print("b = ")
+
+>>> print(b)
+
+>>> c = np.full((2,2), 7) # 创建常数数组
+
+>>> print("c = ")
+
+>>> print(c)
+
+>>> d = np.eye(2) # 创建n维对角数组
+
+>>> print("d = ")
+
+>>> print(d)
+
+>>> e = np.random.random((2,2)) # 创建随机数组
+
+>>> print("e = ")
+
+>>> print(e)
+
+>>> f = np.arrange(0,10,1) # 创建按从0到9，间隔为1的等差数列
+
+>>> print("f = ")
+
+>>> print(f)
+
+>>> g = np.linspace (0,9,10) # 创建按从0到9，含有10个元素的等差数列
+
+>>> print("g = ")
+
+>>> print(g)
+```
+输出：
+```
+a =
+
+[[0. 0.]
+
+[0. 0.]]
+
+b =
+
+[[1. 1.]]
+
+c =
+
+[[7 7]
+
+[7 7]]
+
+d =
+
+[[1. 0.]
+
+[0. 1.]]
+
+e =
+
+[[0.94310249 0.39902715]
+
+[0.71982074 0.43460291]]
+
+f =
+
+[0 1 2 3 4 5 6 7 8 9]
+
+g =
+
+[0 1 2 3 4 5 6 7 8 9]
+```
+### 元素访问
+
+**1基本索引（访问单元素）**
+
+**链接：** https://numpy.org/doc/stable/user/basics.indexing.html#basics-indexing
+
+数组的单元素索引的工作方式与其他标准Python序列的工作方式完全相同。它从0开始，并接受从数组末尾开始索引的负索引。
+
+**说明：** 索引为整数
+
+**案例：** 通过索引访问数组中的指定元素
+```py
+# 一维数组
+
+>>> x = np.arange(10) # x = [0 1 2 3 4 5 6 7 8 9]
+
+>>> x[2]
+
+输出：
+
+2
+
+>>> x[-2]
+
+输出：
+
+8
+
+# 多维数组
+
+>>> x.shape = (2, 5) # x = [[0 1 2 3 4]
+
+[5 6 7 8 9]]
+
+>>> x[1, 3] # x第二行第四列元素
+
+输出：
+
+8
+
+>>> x[1, -1] # x第二行最后一列元素
+
+输出：
+
+9
+
+# 请注意，如果传入的指定索引数少于数组的维度，则会得到一个子维度数组
+
+(类似于切片索引)
+
+>>> x[0] # x的第一子维度数组
+
+输出：
+
+array([0, 1, 2, 3, 4])
+
+# 与C语言类似，二维数组也可以采取以下形式访问元素，x[0，2]==x[0][2]。
+
+# 但是请注意，第二种情况效率更低，因为程序在第一个索引之后创建一个新的临时数组。
+
+>>> x[0][2] # x第一行第三列元素
+
+输出：
+
+2
+```
+**2切片索引（访问多元素）**
+
+**链接：** https://numpy.org/doc/stable/user/basics.indexing.html#slicing-and-striding
+
+与标准Python序列类似，可以使用冒号（:）对numpy的数组进行切片。由于数组可能是多维的，因此必须为数组的每个维指定一个切片
+
+**说明1**：基本的切片语法是i:j:k，其中i是开始索引，j是停止索引，k是步长。该语句将选择索引值为i、i+k、…、i+（m-1）k的m个元素（在相应维度中），其中和q和r是通过将j-i除以k:j-i=q k+r得到的商和余数，因此i+（m-1）k<j。例如：
+
+**案例：** 访问多维数组中某一维度所有元素
+```py
+>>> x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+>>> x[1:7:2]
+
+输出：
+
+array([1, 3, 5])
+```
+**说明2：** 可以将基本索引与切片索引混合使用。但是，这样做会产生比原始数组更低级别的数组，这与MATLAB处理数组切片的方式完全不同
+
+**案例：** 基本索引与切片索引混合使用
+```py
+>>> x = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+
+>>> x[1, :] # Rank 1 view of the second row of a
+
+输出：
+
+[5 6 7 8] # 一维数组
+
+>>> x[1:2, :] # Rank 2 view of the second row of a
+
+输出：
+
+[[5 6 7 8]] #大小为1×4的二维数组
+```
+### 数组基本运算
+
+**1元素运算**
+
+**链接：** https://numpy.org/doc/stable/user/quickstart.html#basic-operations
+
+数组的算术运算按元素执行。创建一个新数组，并用计算结果填充。
+
+**说明：** 算术运算指加减乘除四则运算和简单的函数映射
+
+**案例：** 数组算术运算
+```py
+>>> a = np.array([20, 30, 40, 50])
+
+>>> b = np.arange(4) # [0,1,2,3]
+
+>>> a - b
+
+输出：
+
+array([20, 29, 38, 47])
+
+>>> b**2 # == b*b 即b中元素的平方
+
+输出：
+
+array([0, 1, 4, 9])
+
+>>> 10 * np.sin(a) # 10sin(a)
+
+输出：
+
+array([ 9.12945251, -9.88031624, 7.4511316 , -2.62374854])
+
+>>> a < 35
+
+输出：
+
+array([ True, True, False, False])
+
+# 当使用不同类型的数组进行操作时，结果数组的类型对应于更一般或更精确的类型（一种称为向上转换的行为）
+
+>>> a = np.ones(3, dtype=np.int32) # 元素为int型
+
+>>> b = np.linspace(0, pi, 3) # 元素为float型
+
+>>> b.dtype.name
+
+输出：
+
+'float64'
+
+>>> c = a + b
+
+>>> c
+
+输出：
+
+array([1. , 2.57079633, 4.14159265])
+
+>>> c.dtype.name
+
+输出：
+
+'float64'
+
+>>> d = np.exp(c * 1j)
+
+>>> d
+
+输出：
+
+array([ 0.54030231+0.84147098j, -0.84147098+0.54030231j,
+
+-0.54030231-0.84147098j])
+
+>>> d.dtype.name
+
+'complex128'
+```
+**2矩阵运算**
+
+**链接：** https://numpy.org/doc/stable/user/quickstart.html#basic-operations
+
+与许多矩阵语言不同，乘积运算符*在NumPy数组中按元素操作。可以使用@运算符或点函数或方法执行矩阵乘积：
+
+**说明：** @运算符需要python版本3.5以上
+
+**案例：** 数组矩阵运算
+```py
+>>> A = np.array([[1, 1],
+
+[0, 1]])
+
+>>> B = np.array([[2, 0],
+
+[3, 4]])
+
+>>> A * B # 按元素相乘
+
+输出：
+
+array([[2, 0],
+
+[0, 4]])
+
+>>> A @ B # 矩阵相乘
+
+输出：
+
+array([[5, 4],
+
+[3, 4]])
+
+>>> A.dot(B) # 另一种矩阵相乘的形式
+
+输出：
+
+array([[5, 4],
+
+[3, 4]])
+```
+**3其他常用运算**
+
+**函数:**sum()
+
+**说明：** 对数组中所有元素求和，然而，通过指定维度参数（axis=n），您可以仅沿数组的指定维度n应用操作。
+
+**案例：**
+```py
+>>> a = rg.random((2, 3))
+
+>>> a
+
+输出：
+
+array([[0.82770259, 0.40919914, 0.54959369],
+
+[0.02755911, 0.75351311, 0.53814331]])
+
+>>> a.sum()
+
+输出：
+
+3.1057109529998157
+
+>>> a.sum(axis = 1)
+
+输出：
+
+array([1.78649542, 1.31921553])
+```
+**函数:** min()
+
+**说明：**  求数组中所有元素的最小值，然而，通过指定维度参数（axis=n），您可以仅沿数组的指定维度n应用操作。
+
+**案例：**
+```py
+>>> a = rg.random((2, 3))
+
+>>> a
+
+输出：
+
+array([[0.82770259, 0.40919914, 0.54959369],
+
+[0.02755911, 0.75351311, 0.53814331]])
+
+>>> a.min()
+
+输出：
+
+0.027559113243068367
+
+>>> a.min(axis = 1)
+
+输出：
+
+array([0.40919914, 0.02755911])
+```
+**函数:** max()
+
+**说明：** 求数组中所有元素的最大值，然而，通过指定维度参数（axis=n），您可以仅沿数组的指定维度n应用操作。
+
+**案例：**
+```py
+>>> a = rg.random((2, 3))
+
+>>> a
+
+输出：
+
+array([[0.82770259, 0.40919914, 0.54959369],
+
+[0.02755911, 0.75351311, 0.53814331]])
+
+>>> a.max()
+
+输出：
+
+0.8277025938204418
+
+>>> a.max(axis = 1)
+
+输出：
+
+array([0.82770259, 0.75351311])
+```
+**函数:** exp()
+
+**说明：** 求数组中所有元素的指数。
+
+**案例：**
+```py
+>>> a = np.arange(3) # a = [0, 1, 2]
+
+>>> np.exp(a)
+
+输出：
+
+array([1. , 2.71828183, 7.3890561 ])
+```
+**函数:** sqrt()
+
+**说明：** 求数组中所有元素的平方根。
+
+**案例：**
+```py
+>>> a = np.arange(3) # a = [0, 1, 2]
+
+>>> np.sqrt(a)
+```
+输出：
+```py
+array([0. , 1. , 1.41421356])
+```
+## SciPy软件包
+
+Scipy是开源的Python算法库和工具包。Scipy是基于Numpy的科学计算工具包，可以处理高级抽象函数和物理建模等问题，应用于数学、科学、工程等领域。Scipy由最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解等子工具包组成。
+
+使用scipy常用导入指令
+```py
+>>> import numpy as np
+
+>>> import matplotlib as mpl
+
+>>> import matplotlib.pyplot as plt
+```
+Scipy子工具包构成如下表：
+
+| 名称                                                                                                          | 描述                                                                            |
+|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| cluster                                                                                                       | Clustering algorithms（聚类分析算法）                                           |
+| [constants](https://docs.scipy.org/doc/scipy/reference/reference/constants.html#module-scipy.constants)       | Physical and mathematical constants（物理和数学常数）                           |
+| [fftpack](https://docs.scipy.org/doc/scipy/reference/reference/fftpack.html#module-scipy.fftpack)             | Fast Fourier Transform routines（快速傅里叶变换）                               |
+| [integrate](https://docs.scipy.org/doc/scipy/reference/reference/integrate.html#module-scipy.integrate)       | Integration and ordinary differential equation solvers （积分和常微分方程求解） |
+| [interpolate](https://docs.scipy.org/doc/scipy/reference/reference/interpolate.html#module-scipy.interpolate) | Interpolation and smoothing splines（插值和平滑样条曲线）                       |
+| [io](https://docs.scipy.org/doc/scipy/reference/reference/io.html#module-scipy.io)                            | Input and Output（输入和输出）                                                  |
+| [linalg](https://docs.scipy.org/doc/scipy/reference/reference/linalg.html#module-scipy.linalg)                | Linear algebra（线性代数）                                                      |
+| [ndimage](https://docs.scipy.org/doc/scipy/reference/reference/ndimage.html#module-scipy.ndimage)             | N-dimensional image processing（N维图像处理）                                   |
+| [odr](https://docs.scipy.org/doc/scipy/reference/reference/odr.html#module-scipy.odr)                         | Orthogonal distance regression（正交距离回归）                                  |
+| [optimize](https://docs.scipy.org/doc/scipy/reference/reference/optimize.html#module-scipy.optimize)          | Optimization and root-finding routines（优化和寻根）                            |
+| [signal](https://docs.scipy.org/doc/scipy/reference/reference/signal.html#module-scipy.signal)                | Signal processing（信号处理）                                                   |
+| [sparse](https://docs.scipy.org/doc/scipy/reference/reference/sparse.html#module-scipy.sparse)                | Sparse matrices and associated routines（稀疏矩阵）                             |
+| [spatial](https://docs.scipy.org/doc/scipy/reference/reference/spatial.html#module-scipy.spatial)             | Spatial data structures and algorithms（空间数据结构和算法）                    |
+| [special](https://docs.scipy.org/doc/scipy/reference/reference/special.html#module-scipy.special)             | Special functions（特殊函数）                                                   |
+| [stats](https://docs.scipy.org/doc/scipy/reference/reference/stats.html#module-scipy.stats)                   | Statistical distributions and functions（统计分布和函数）                       |
+
+
+
+### 线性代数
+
+scipy.linalg包含了numpy.linalg中的所有函数，并定义了更高级的函数功能。numpy.matrix和numpy.ndarray两个类在使用中有异同，matrix类定义方式更类似于Matlab中矩阵，支持默认运算符的操作，如矩阵乘法和转置等；而2-D的array类运算需要使用函数，输入参数为需要进行运算的两个实例化的array对象。为了防止用户在编程中使用混淆，更推荐在Python中使用numpy.ndarray。以下所有函数的调用均在相关库以及scipy导入前提下进行。
+
+**1矩阵基本操作**
+
+**链接：** [https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#](https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html#)
+
+加*部分教学要求较低，感兴趣的同学可以点击进行链接学习
+
+**函数：linalg.inv(A)** 或者当A为矩阵类时：**A.I**
+
+**说明：** 返回n维数组的逆矩阵
+
+**案例：** matrix求逆
+```py
+>>> import numpy as np
+
+>>> A = np.mat('[1 2;3 4]')
+
+>>> A
+
+matrix([[1, 2],
+
+[3, 4]])
+
+>>> A.I
+
+matrix([[-2. , 1. ],
+
+[ 1.5, -0.5]])
+```
+**案例：** array求逆
+```py
+>>> import numpy as np
+
+>>> from scipy import linalg
+
+>>> A = np.array([[1,2],[3,4]])
+
+>>> A
+
+array([[1, 2],
+
+[3, 4]])
+
+>>> linalg.inv(A)
+
+array([[-2. , 1. ],
+
+[ 1.5, -0.5]])
+```
+**函数：linalg.solve(A,b)**
+
+**说明：** 求解线性方程组时可以使用linalg.solve(A,b)快速求得解向量，也可以通过逆向量乘以输出列向量求解![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image001.png)，但是速度更慢结果不稳定，不推荐使用，且两种方法得到的解向量可以进一步代入检验。
+
+**案例：** 假设需要求解以下线性方程组：
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image002.png)
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image003.png)
+为系数矩阵，
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image004.png)
+为输出列向量
+
+```py
+>>> import numpy as np
+
+>>> from scipy import linalg
+
+>>> A = np.array([[1,3,5],[2,5,1],[2,3,8]])
+
+>>> A
+
+array([[1, 3, 5],
+
+[2, 5, 1],
+
+[2, 3, 8]])
+
+>>> linalg.inv(A)
+
+array([[-1.48, 0.36, 0.88],
+
+[ 0.56, 0.08, -0.36],
+
+[ 0.16, -0.12, 0.04]])
+
+>>> A.dot(linalg.inv(A))
+
+#基于数值计算，矩阵和其逆以矩阵乘法相乘，结果不为标准单位矩阵
+
+array([[ 1.00000000e+00, -1.11022302e-16, 4.85722573e-17],
+
+[ 3.05311332e-16, 1.00000000e+00, 7.63278329e-17],
+
+[ 2.22044605e-16, -1.11022302e-16, 1.00000000e+00]])
+```
+**函数：linalg.det(A)**
+
+**说明：** 求矩阵的行列式
+
+**案例：**
+```py
+>>> import numpy as np
+
+>>> from scipy import linalg
+
+>>> A = np.array([[1,2],[3,4]])
+
+>>> A
+
+array([[1, 2],
+
+[3, 4]])
+
+>>> linalg.det(A)
+
+-2.0
+```
+\*求范数：**linalg.norm**
+
+\*求解线性最小二乘问题：**linalg.lstsq**和**linalg.pinv**或者**linalg.pinv2**
+
+\*广义逆矩阵：**linalg.pinv**或者**linalg.pinv2**
+
+**2矩阵分解**
+
+**函数： linalg.eig(A)**
+
+**说明：** 求特征值和特征向量
+
+**案例：**
+```py
+>>> import numpy as np
+
+>>> from scipy import linalg
+
+>>> A = np.array([[1, 2], [3, 4]])
+
+>>> la, v = linalg.eig(A)
+
+>>> la #特征值，返回一个行向量
+
+array([-0.37228132+0.j, 5.37228132+0.j])
+
+>>> v #特征向量，返回一个列向量
+
+array([[-0.82456484, -0.41597356],
+
+[ 0.56576746, -0.90937671]])
+```
+\*奇异值分解（Singular value decomposition）：可以被认为是特征值问题对非平方矩阵的扩展，**linalg.svd**
+
+\*LU分解：**linalg.lu**
+
+\*乔洛斯基分解（Cholesky decomposition）：**linalg.cholesky**
+
+\*QR分解：**linalg.qr**
+
+\*舒尔分解（Schur decomposition）：**linalg.schur**
+
+\*插值分解（Interpolative decomposition）：**scipy.linalg.interpolative**
+
+**3矩阵函数**
+
+指数函数：**linalg.expm**
+
+对数函数：**linalg.logm**
+
+三角函数：**linalg.sinm, linalg.cosm**和 **linalg.tanm**
+
+双曲三角函数：**linalg.sinhm, linalg.coshm**和 **linalg.tanhm**
+
+\*任意函数：**linalg.funm**
+
+**案例：** 指数函数、三角函数
+```py
+>>> from scipy.linalg import expm, sinm, cosm
+
+>>> expm(np.zeros((2,2)))
+
+array([[1., 0.],
+
+[0., 1.]])
+
+>>> #Euler’s identity(欧拉等式) exp(i*theta) = cos(theta) + i*sin(theta)
+
+>>> a = np.array([[1.0, 2.0], [-1.0, 3.0]])
+
+>>> expm(1j*a)
+
+array([[ 0.4264593 +1.89217551j, -2.13721484-0.97811252j],
+
+[ 1.06860742+0.48905626j, -1.71075555+0.91406299j]])
+
+>>> cosm(a) + 1j*sinm(a)
+
+array([[ 0.4264593 +1.89217551j, -2.13721484-0.97811252j],
+
+[ 1.06860742+0.48905626j, -1.71075555+0.91406299j]])
+```
+**案例：** 指数函数、对数函数
+```py
+>>> from scipy.linalg import logm, expm
+
+>>> a = np.array([[1.0, 3.0], [1.0, 4.0]])
+
+>>> b = logm(a)
+
+>>> b
+
+array([[-1.02571087, 2.05142174],
+
+[ 0.68380725, 1.02571087]])
+
+>>> expm(b) # Verify expm(logm(a)) returns a
+
+array([[1., 3.],
+
+[1., 4.]])
+```
+**4特殊矩阵**
+
+| **名称**          | **函数**                                                                                                                                                               | **描述**                     |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| block diagonal    | [scipy.linalg.block_diag](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.block_diag.html#scipy.linalg.block_diag)                         | 从提供的数组创建块对角矩阵。 |
+| circulant         | [scipy.linalg.circulant](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.circulant.html#scipy.linalg.circulant)                            | 创建循环矩阵。               |
+| companion         | [scipy.linalg.companion](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.companion.html#scipy.linalg.companion)                            | 创建伴随矩阵。               |
+| convolution       | [scipy.linalg.convolution_matrix](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.convolution_matrix.html#scipy.linalg.convolution_matrix) | 创建卷积矩阵。               |
+| Discrete Fourier  | [scipy.linalg.dft](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.dft.html#scipy.linalg.dft)                                              | 创建离散傅里叶变换矩阵。     |
+| Fiedler           | [scipy.linalg.fiedler](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.fiedler.html#scipy.linalg.fiedler)                                  | 创建对称菲德勒矩阵。         |
+| Fiedler Companion | [scipy.linalg.fiedler_companion](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.fiedler_companion.html#scipy.linalg.fiedler_companion)    | 创建 Fiedler 伴随矩阵。      |
+| Hadamard          | [scipy.linalg.hadamard](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.hadamard.html#scipy.linalg.hadamard)                               | 创建哈达马德矩阵。           |
+| Hankel            | [scipy.linalg.hankel](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.hankel.html#scipy.linalg.hankel)                                     | 创建一个汉克尔矩阵。         |
+| Helmert           | [scipy.linalg.helmert](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.helmert.html#scipy.linalg.helmert)                                  | 创建赫尔默特矩阵。           |
+| Hilbert           | [scipy.linalg.hilbert](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.hilbert.html#scipy.linalg.hilbert)                                  | 创建希尔伯特矩阵。           |
+| Inverse Hilbert   | [scipy.linalg.invhilbert](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.invhilbert.html#scipy.linalg.invhilbert)                         | 创建希尔伯特矩阵的逆矩阵。   |
+| Leslie            | [scipy.linalg.leslie](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.leslie.html#scipy.linalg.leslie)                                     | 创建莱斯利矩阵。             |
+| Pascal            | [scipy.linalg.pascal](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.pascal.html#scipy.linalg.pascal)                                     | 创建一个帕斯卡矩阵。         |
+| Inverse Pascal    | [scipy.linalg.invpascal](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.invpascal.html#scipy.linalg.invpascal)                            | 创建帕斯卡矩阵的逆矩阵。     |
+| Toeplitz          | [scipy.linalg.toeplitz](https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.linalg.toeplitz.html#scipy.linalg.toeplitz)                               | 创建托普利茨矩阵。           |
+| Van der Monde     | [numpy.vander](https://numpy.org/devdocs/reference/generated/numpy.vander.html#numpy.vander)                                                                           | 创建一个范德蒙德矩阵。       |
+
+
+
+### 微积分
+
+scipy.integrate包含基于函数公式的积分和基于采样值的积分两类积分方法以及常微分方程求解。以下所有函数的调用均在相关库以及scipy导入前提下进行。
+
+**1基于函数公式积分**
+
+**链接：** [https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#](https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#)
+
+加*部分教学要求较低，感兴趣的同学可以点击进行链接学习
+
+**函数：integrate.quad(integrand, x1, x2, args=(a,b))**
+
+**说明：** 使用quad( )进行通用积分，其中integrand为积分公式（或者函数），x1, x2为积分下限和上限（可以为常数或者无穷inf），args为积分式中的其他参数，求积分前需要赋值。可以在定义integrand中使用quad再对公式积分实现多重积分。
+
+**案例：** 假设求下列积分：
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image005.png)
+
+```py
+>>> from scipy.integrate import quad
+
+>>> #定义积分函数
+
+>>> def integrand(x, a, b):
+
+... return a*x**2 + b
+
+...
+
+>>> a = 2 #积分前必须对函数中参数赋值
+
+>>> b = 1
+
+>>> I = quad(integrand, 0, 1, args=(a,b))
+
+>>> I
+
+(1.6666666666666667, 1.8503717077085944e-14)
+```
+**函数：**
+
+二重积分：**integrate.dblquad(integrand, x1, x2, y1, y2)**
+
+三重积分：**integrate.tplquad(),**
+
+多重积分：**integrate.nquad()**
+
+**说明：** integrand可以使用lambda函数定义变量，x1, x2和y1,y2为两次积分边界，多重积分中边界可以定义为list型的n个常数区间或者无穷边界。
+
+**案例：** 假设求下列积分：
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image006.png)
+
+```py
+>>> from scipy.integrate import dblquad #二重积分
+
+>>> #积分范围使用lambda函数 “：”前为变量，后为函数式
+
+>>> area = dblquad(lambda x, y: x*y, 0, 0.5, lambda x: 0, lambda x: 1-2*x)
+
+>>> area
+
+(0.010416666666666668, 4.101620128472366e-16)
+```
+**案例：** 假设求下列积分：
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image007.png)
+
+```py
+>>> from scipy import integrate #多重积分
+
+>>> N = 5
+
+>>> def f(t, x):
+
+... return np.exp(-x*t) / t**N
+
+...
+
+>>> #积分范围使用list给出
+
+>>> integrate.nquad(f, [[1, np.inf],[0, np.inf]])
+
+(0.2000000000189363, 1.3682975855986131e-08)
+```
+*高斯型积分:
+
+**integrate.fixed_quad**（固定阶高斯积分）
+
+**integrate.quadrature**（多阶高斯积分）
+
+\*Romberg积分：**integrate.romberg**
+
+**2基于采样值积分**
+
+\*梯形法则：**integrate.trapezoid**
+
+\*辛普森法则：**integrate.simpson**
+
+**3常微分方程求解**
+
+**函数：integrate.odeint()**
+
+**说明：** 用于求解以下形式的常微分方程
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image008.png)
+
+函数完整调用形式
+```py
+scipy.integrate.odeint(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)
+```
+func即y在t处的导数的函数式，y0为初值条件，用数组表示，t为求解函数值对应的时间点的序列。序列的第一个元素是与初始条件 y0 对应的初始时间 t0；时间序列必须是单调递增或单调递减的，允许重复值。。
+
+**案例：**
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image009.png)
+
+```py
+# ode.py
+
+from scipy.integrate import odeint
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+def dy_dt(y,t):
+
+return np.sin(t**2)
+
+y0=[1]
+
+t = np.arange(-10,10,0.01)
+
+y=odeint(dy_dt,y0,t)
+
+plt.plot(t, y)
+
+plt.title("picture")
+
+plt.show()
+```
+运行结果如下图：
+
+![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image010.png)
+
+### 概率统计
+
+scipy.stats包含了随机变量生成、构建分布和统计描述等多种函数，可以处理连续和离散分布，以下仅列出部分函数功能。
+
+**1随机变量**（以连续分布为例，离散分布的特殊性有单独模块指出）
+
+**常用方法：** 如下表：
+
+| 名称      | 描述                             |
+|-----------|----------------------------------|
+| rvs( )    | 生成随机变量                     |
+| pdf( )    | 概率密度函数                     |
+| cdf( )    | 累积分布函数（pdf积分）          |
+| sf( )     | 生存函数（1-cdf）                |
+| ppf( )    | 百分位函数（cdf反函数）          |
+| isf( )    | 生存函数反函数                   |
+| stats( )  | 返回均值、方差、Fisher偏度和峰度 |
+| moment( ) | 分布的非中心距                   |
+
+
+
+**案例：**
+```py
+>>> from scipy import stats
+
+>>> from scipy.stats import norm
+
+>>> # random产生loc为5的标准正态分布随机数
+
+>>> norm.cdf(0) #标准正态分布的cdf在0处函数值
+
+0.5
+
+>>> norm.mean(), norm.std(), norm.var()#均值、范数、方差
+
+(0.0, 1.0, 1.0)
+
+>>> norm**.**rvs**(**size**=3)**
+
+array([-0.35687759, 1.34347647, -0.11710531])
+
+>>> # random大小为3的标准正态分布向量
+
+>>> norm**.**rvs**(5)**
+
+5.471435163732493
+
+>>> #随机数生成还可以使用numpy.random.Generator
+```
+**偏移与缩放**：所有连续分布可以调整参数loc和scale，例如标准正态分布loc是均值scale是标准差。通常情况使一个分布X标准化可以用指令X(X - loc) / scale得到，loc = 0，scale = 1。
+```py
+>>> norm.stats(loc=3, scale=4, moments="mv")
+
+(array(3.0), array(16.0))
+```
+**形态参数：** 一般情况连续分布的形态可以由loc和scale确定，但有些情况需要额外参数确定分布的形态，例如gamma分布中参数a=1时变为指数分布。
+
+**冻结分布：** python指令中例如调用norm或者gamma中参数可设置，当使用赋值语句生成随机变量后参数冻结，不可更改，例如rv== gamma(1, scale=2.)。
+
+**离散分布的特殊之处：** 离散分布大多数函数与连续分布类似，概率密度函数为pmf，没有估计方法，scale不是合法参数，关键字loc仍可以用于偏移。连续分布的cdf一般为严格递增，所以有唯一的反函数ppf，而离散分布cdf为阶跃函数，所以cdf反函数ppf定义不同：
+```py
+ppf(q) = min{x : cdf(x) >= q, x integer}
+```
+**分布拟合：** 非冻结分布的参数估计方法如下
+
+fit：分布参数的最大似然估计，包括location与scale
+
+fit_loc_scale: 给定形态参数确定下的location和scale参数的估计
+
+nnlf:负对数似然函数
+
+expect:计算函数pdf或pmf的期望值。
+
+**说明：** 运行速度因分布类型差异极大，精确计算一般更快，直接使用解析公式如scipy.special中函数，随机变量rvs还可以使用numpy.random中的函数。scipy.stats中分布仍有分布在特殊临界条件下出现错误值。
+
+**2构建具体分布**
+
+**连续分布：** 继承rv_continuous类
+
+**案例：**
+```py
+>>> from scipy import stats
+
+>>> class deterministic_gen(stats.rv_continuous):
+
+... def _cdf(self, x):
+
+... return np.where(x < 0, 0., 1.)
+
+... def _stats(self):
+
+... return 0., 0., 0., 0.
+
+>>> deterministic = deterministic_gen(name="deterministic")
+
+>>> deterministic.cdf(np.arange(-3, 3, 0.5))
+
+array([ 0., 0., 0., 0., 0., 0., 1., 1., 1., 1., 1., 1.])
+
+>>> deterministic.pdf(np.arange(-3, 3, 0.5))
+
+array([ 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+
+0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
+
+5.83333333e+04, 4.16333634e-12, 4.16333634e-12,
+
+4.16333634e-12, 4.16333634e-12, 4.16333634e-12])
+```
+**离散分布：** 继承rv_discrete类
+
+**说明：** 构造一个任意离散的rv，其中![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image011.png)，方法是将rv_discrete初始化时（通过values=关键字）传递一个序列元组![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image012.png)，该元组仅描述那些以非零概率（![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image013.png)）出现的![image](https://github.com/mmaayybelin/signal-processing_python/blob/main/images/scipy/image014.png)值。
+
+**3样本分析**
+
+**描述统计：**
+
+1） x是一个numpy数组，直接查看数字特征
+
+x.min, x.max, x.mean, x.var（np.var是有偏估计）
+
+2）使用scipy.stats （stats.describe是无偏估计）
+
+**案例：**
+```py
+>>> from scipy import stats
+
+>>> x = stats.t.rvs(10, size=1000)
+
+>>> #T分布生成一个自由度10大小1000的随机变量
+
+>>> print(x.min()) # 等价于 np.min(x)
+
+-4.791173625654017
+
+>>> print(x.max()) # 等价于 np.max(x)
+
+4.58334872100337
+
+>>> print(x.mean()) # 等价于 np.mean(x)
+
+0.02380110096856749
+
+>>> print(x.var()) # e等价于 np.var(x))
+
+1.2803416239455527
+
+>>> m, v, s, k = stats.t.stats(10, moments='mvsk')
+
+>>> #返回T分布均值、方差、偏度、峰度
+
+>>> n, (smin, smax), sm, sv, ss, sk = stats.describe(x)
+
+>>> 返回x一个样本的均值、方差、偏度、峰度
+
+>>> sstr = '%-14s mean = %6.4f, variance = %6.4f, skew = %6.4f, kurtosis = %6.4f'
+
+>>> print(sstr % ('distribution:', m, v, s ,k))
+
+distribution: mean = 0.0000, variance = 1.2500, skew = 0.0000, kurtosis = 1.0000
+
+>>> print(sstr % ('sample:', sm, sv, ss, sk))
+
+sample: mean = 0.0238, variance = 1.2816, skew = 0.0655, kurtosis = 0.8404
+```
+*T检验和KS检验：使用t检验是否样本与给定均值（这里是理论均值）存在显著统计差异；使用Kolmogorov-Smirnov检验（KS检验）检验样本是否来自一个标准的t分布。
+
+**4比较两个样本是否属于同一个分布**
+
+*检验均值或使用KS检验
+
+**5、由样本函数估计分布概率密度**
+
+*核密度估计：单元估计或者多元估计
+
+
+
 ## Matplotlib软件包使用
 
 Matplotlib的全称是mathematic plot library，这个名称非常简练而准确地概括了它的功能：创建各种各样的可视化内容，这些内容可以是静态的、动态的，甚至是可交互的。其官方文档请见网址https://matplotlib.org/。
