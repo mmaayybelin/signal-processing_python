@@ -15,7 +15,7 @@
 
 2.2 [Python基础](https://github.com/mmaayybelin/signal-processing_python/blob/main/%E8%AE%B2%E4%B9%89/Python%E5%9F%BA%E7%A1%80.md)
 
-2.3 [Python信号处理](https://github.com/mmaayybelin/signal-processing_python/blob/main/%E8%AE%B2%E4%B9%89/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E7%9A%84Python%E5%AE%9E%E7%8E%B0/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E7%9A%84Python%E5%AE%9E%E7%8E%B0.md)
+2.3 [数字信号处理的Python实现](https://github.com/mmaayybelin/signal-processing_python/blob/main/%E8%AE%B2%E4%B9%89/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E7%9A%84Python%E5%AE%9E%E7%8E%B0/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E7%9A%84Python%E5%AE%9E%E7%8E%B0.md)
 
 2.4 [Python APP开发](https://github.com/mmaayybelin/signal-processing_python/blob/main/%E8%AE%B2%E4%B9%89/Python%E5%BC%80%E5%8F%91APP%E5%9F%BA%E7%A1%80.md)
 
